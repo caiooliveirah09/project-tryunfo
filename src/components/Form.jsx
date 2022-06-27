@@ -2,32 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
-  // constructor() {
-  /* super();
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
-      cardRare: '',
-      cardTrunfo: false,
-      hasTrunfo: false,
-      isSaveButtonDisabled: false,
-      onInputChange: '',
-      onSaveButtonClick:'',
-    };
-  }
-  */
-  /* onInputChange = ({ target }) => {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [target.id]: value,
-    });
-  }
-  */
-
   render() {
     const { cardName, cardDescription, cardAttr1,
       cardAttr2, cardAttr3, cardImage,
@@ -133,7 +107,7 @@ class Form extends React.Component {
   }
 }
 
-/* Form.propTypes = {
+Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardAttr1: PropTypes.string.isRequired,
@@ -147,6 +121,5 @@ class Form extends React.Component {
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };
-*/
 
 export default Form;
