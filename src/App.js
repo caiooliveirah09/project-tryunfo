@@ -8,14 +8,15 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
-      cardRare: '',
+      cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      cardsInfo: [],
     };
   }
 
@@ -25,6 +26,7 @@ class App extends React.Component {
       () => this.setState({ isSaveButtonDisabled: this.validateForms() }));
   }
 
+  // Esse código de baixo funciona, mas não passa nos testes do jest :/
   // setStateAsync = (state) => new Promise((resolve) => { this.setState(state, resolve); })
 
   validateForms = () => {
@@ -55,6 +57,39 @@ class App extends React.Component {
 
   onSaveButtonClick = (event) => {
     event.preventDefault();
+
+    const { cardName, cardDescription, cardAttr1,
+      cardAttr2, cardAttr3, cardImage,
+      cardRare, cardTrunfo, hasTrunfo, cardsInfo } = this.state;
+
+    const card = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+    };
+
+    this.setState({
+      cardsInfo: [...cardsInfo, card],
+    });
+
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      hasTrunfo: false,
+      isSaveButtonDisabled: true,
+    });
   }
 
   render() {
